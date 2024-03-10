@@ -4,6 +4,7 @@ from flask import Flask, send_file, render_template
 
 app = Flask(__name__)
 
+
 @app.route("/")
 def index():
     return render_template('index.html')
@@ -24,9 +25,9 @@ def pagesContact():
 def pagesRegister():
     return render_template("pages-register.html")
 
-# @app.route("/pages-register")
-# def pagesRegister():
-#     return render_template('pages-register.html')
+@app.route("/pages-error-404")
+def pageError():
+    return render_template("pages-error-404.html")
 
 @app.route("/pages-blank")
 def pagesBlank():
@@ -35,6 +36,7 @@ def pagesBlank():
 @app.route("/pages-login")
 def pagesLogin():
     return render_template('pages-login.html')
+
 
 def main():
     app.run(port=int(os.environ.get('PORT', 80)))
